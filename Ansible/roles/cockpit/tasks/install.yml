@@ -1,0 +1,142 @@
+---
+#cockpit
+- name: Install cockpit
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit
+    state: latest
+  when: cockpit
+  become: yes
+  notify:
+    - restart cockpit
+
+- name: Install cockpit-selinux
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-selinux
+    state: latest
+  notify:
+    - restart cockpit
+  when: cockpit_selinux|bool
+  become: yes
+
+#cockpit-docker
+- name: Install cockpit-docker
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-docker
+    state: latest
+  when: cockpit_docker
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-networkmanager
+- name: Install cockpit-networkmanager
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-networkmanager
+    state: latest
+  when: cockpit_networkmanager
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-shell
+- name: Install cockpit-shell
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-shell
+    state: latest
+  when: cockpit_shell
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-storaged
+- name: Install cockpit-storaged
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-storaged
+    state: latest
+  when: cockpit_storaged
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-doc
+- name: Install cockpit-doc
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-doc
+    state: latest
+  when: cockpit_doc
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-kubernetes
+- name: Install cockpit-kubernetes
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-kubernetes
+    state: latest
+  when: cockpit_kubernetes
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-ostree
+- name: Install cockpit-ostree
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-ostree
+    state: latest
+  when: cockpit_ostree
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-pcp
+- name: Install cockpit-pcp
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-pcp
+    state: latest
+  when: cockpit_pcp
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-selinux
+- name: Install cockpit-selinux
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-selinux
+    state: latest
+  when: cockpit_selinux
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-sosreport
+- name: Install cockpit-sosreport
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-sosreport
+    state: latest
+  when: cockpit_sosreport
+  become: yes
+  notify:
+    - restart cockpit
+
+#cockpit-subscriptions
+- name: Install cockpit-subscriptions
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: cockpit-subscriptions
+    state: latest
+  when: cockpit_subscriptions
+  become: yes
+  notify:
+    - restart cockpit

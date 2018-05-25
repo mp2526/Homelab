@@ -3,3 +3,4 @@
 - hosts: nas
   roles:
     - netdata
+    - cockpit

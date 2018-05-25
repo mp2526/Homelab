@@ -3,3 +3,4 @@
 - hosts: pihole
   roles:
     - netdata
+    - cockpit
