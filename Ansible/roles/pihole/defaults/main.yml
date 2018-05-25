@@ -1,0 +1,3 @@
+---
+# defaults file for pi-hole
+pihole_install_dir: /etc/pihole

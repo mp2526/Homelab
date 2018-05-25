@@ -4,3 +4,4 @@
   roles:
     - netdata
     - cockpit
+    - pihole
