@@ -1,0 +1,9 @@
+---
+# defaults file for hassio
+hassio_install_dir: /etc
+hassio_deps:
+  - bash
+  - jq
+  - curl
+  - avahi-daemon
+  - apparmor-utils

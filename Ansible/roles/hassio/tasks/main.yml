@@ -1,0 +1,61 @@
+---
+  - name: HASSIO | Check if present
+    stat:
+      path: "{{hassio_install_dir}}/hassio.json"
+    register: hassio_present
+  - debug: msg="hassio not installed"
+    when: hassio_present.stat.exists == False
+  - debug: msg="hassio installed"
+    when: hassio_present.stat.exists == True
+
+  - name: Set the stable repository
+    apt_repository: 
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+    become: yes
+    when: hassio_present.stat.exists == False
+
+  - name: Install Docker
+    apt:
+      name: docker-ce
+      update_cache: yes
+      state: present
+      allow_unauthenticated: yes
+    become: yes
+    when: hassio_present.stat.exists == False
+      
+  - name: HASSIO | Install package dependencies
+    apt:
+      pkg: "{{item}}"
+      state: present
+    with_items: "{{hassio_deps}}"
+    when: hassio_present.stat.exists == False
+    become: yes
+    tags:
+     - hassio
+
+  - name: Creates temp directory
+    file:
+      path: /tmp/hassio
+      state: directory
+      mode: 0777
+    when: hassio_present.stat.exists == False
+  
+  - name: HASSIO | Download install script
+    get_url:
+      url: https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install
+      dest: /tmp/hassio/
+      mode: 0777
+    register: hassio_download
+    when: hassio_present.stat.exists == False
+    tags:
+      - hassio
+  - debug: var=hassio_download
+
+  - name: HASSIO | Run install
+    shell: "./hassio_install"
+    args:
+      chdir: /tmp/hassio
+    when: hassio_download.status_code is defined and hassio_download.status_code == 200
+    become: yes
+    tags:
+      - hassio

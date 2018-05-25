@@ -1,0 +1,5 @@
+---
+# file: nameservers.yml
+- hosts: nameservers
+  roles:
+    - netdata

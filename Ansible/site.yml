@@ -1,0 +1,6 @@
+---
+# file: site.yml
+- import_playbook: nameservers.yml
+- import_playbook: pihole.yml
+- import_playbook: hassio.yml
+- import_playbook: nas.yml

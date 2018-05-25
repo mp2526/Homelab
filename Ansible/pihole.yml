@@ -1,0 +1,5 @@
+---
+# file: pihole.yml
+- hosts: pihole
+  roles:
+    - netdata

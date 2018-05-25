@@ -1,0 +1,18 @@
+wopr01.perryha.us
+ns01.perryha.us		ansible_python_interpreter=/usr/bin/python3
+ns02.perryha.us		ansible_python_interpreter=/usr/bin/python3
+mu-th-r-01.perryha.us	ansible_python_interpreter=/usr/bin/python3
+mcp01.perryha.us
+
+[nameservers]
+ns01.perryha.us		ansible_python_interpreter=/usr/bin/python3
+ns02.perryha.us		ansible_python_interpreter=/usr/bin/python3
+
+[pihole]
+wopr01.perryha.us
+
+[hassio]
+mu-th-r-01.perryha.us	ansible_python_interpreter=/usr/bin/python3
+
+[nas]
+mcp01.perryha.us

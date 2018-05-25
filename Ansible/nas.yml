@@ -1,0 +1,5 @@
+---
+# file: nas.yml
+- hosts: nas
+  roles:
+    - netdata

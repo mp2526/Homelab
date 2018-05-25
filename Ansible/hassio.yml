@@ -1,0 +1,6 @@
+---
+# file: hassio.yml
+- hosts: hassio
+  roles:
+    - netdata
+    - hassio
