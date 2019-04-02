@@ -1,0 +1,55 @@
+---
+  - name: Xeoma | Check if present
+    stat:
+      path: "{{xeoma_install_dir}}/xeoma.app"
+    register: xeoma_present
+  - debug: msg="xeoma not installed"
+    when: xeoma_present.stat.exists == False
+  - debug: msg="xeoma installed"
+    when: xeoma_present.stat.exists == True
+
+  - name: Creates temp directory
+    file:
+      path: /tmp/xeoma
+      state: directory
+      mode: 0777
+    when: xeoma_present.stat.exists == False
+    tags:
+      - xeoma
+
+  - name: Creates destination directory
+    file:
+      path: /opt/xeoma
+      state: directory
+      mode: 0777
+    when: xeoma_present.stat.exists == False
+    tags:
+      - xeoma
+
+  - name: Xeoma | Install package dependencies
+    apt:
+      pkg: "{{netdata_deps}}"
+      state: present
+    when: xeoma_present.stat.exists == False
+    become: yes
+    tags:
+      - xeoma
+
+  - name: Xeoma | Download
+    get_url:
+      url: https://felenasoft.com/xeoma/downloads/xeoma_previous_versions/?get=xeoma_linux64_{{ xeoma_version }}.tgz
+      dest: /tmp/xeoma/xeoma_linux64.tgz
+      mode: 0777
+    register: xeoma_download
+    when: xeoma_present.stat.exists == False
+    tags:
+      - xeoma
+  - debug: var=xeoma_download
+
+  - name: Xeoma | Unpack the archive
+    script: unpack.sh --destination {{xeoma_install_dir}}
+    args:
+      removes: /tmp/xeoma/xeoma_linux64.tgz
+    when: xeoma_present.stat.exists == False
+    tags:
+      - xeoma

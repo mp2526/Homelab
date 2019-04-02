@@ -4,10 +4,13 @@ mu-th-r-01.perryha.us	ansible_python_interpreter=/usr/bin/python3
 mcp01.perryha.us
 
 [pihole]
-wopr01.perryha.us
+wopr01.perryha.us ansible_user=mike
 
 [hassio]
-mu-th-r-01.perryha.us	ansible_python_interpreter=/usr/bin/python3
+mu-th-r-01.perryha.us ansible_user=mike	ansible_python_interpreter=/usr/bin/python3
 
 [nas]
-mcp01.perryha.us
+mcp01.perryha.us ansible_user=mike
+
+[nvr]
+ARIIA.perryha.us ansible_user=mike

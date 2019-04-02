@@ -15,4 +15,4 @@ netdata_deps:
   - automake
   - pkg-config
   - curl
-netdata_version: v1.10.0
+netdata_version: v1.13.0

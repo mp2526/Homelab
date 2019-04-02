@@ -1,0 +1,6 @@
+---
+# defaults file for xeoma
+xeoma_install_dir: /opt/xeoma
+xeoma_deps:
+  - libasound2
+xeoma_version: 18.11.21

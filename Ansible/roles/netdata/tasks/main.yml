@@ -10,9 +10,8 @@
 
   - name: NETDATA | Install package dependencies
     apt:
-      pkg: "{{item}}"
+      pkg: "{{netdata_deps}}"
       state: present
-    with_items: "{{netdata_deps}}"
     when: netdata_present.stat.exists == False
     become: yes
     tags:

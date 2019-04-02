@@ -1,0 +1,7 @@
+---
+# file: nvr.yml
+- hosts: nvr
+  roles:
+    - netdata
+    - cockpit
+    - xeoma
