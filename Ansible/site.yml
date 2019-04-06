@@ -4,3 +4,4 @@
 - import_playbook: hassio.yml
 - import_playbook: nas.yml
 - import_playbook: nvr.yml
+- import_playbook: vpn.yml

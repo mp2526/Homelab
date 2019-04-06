@@ -1,6 +1,10 @@
 ---
 # file: nvr.yml
 - hosts: nvr
+  user: deploy
+  become: True
+  gather_facts: True
+
   roles:
     - netdata
     - cockpit

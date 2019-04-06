@@ -1,6 +1,6 @@
 ---
-# file: hassio.yml
-- hosts: hassio
+# file: vpn.yml
+- hosts: vpn
   user: deploy
   become: True
   gather_facts: True
@@ -8,4 +8,3 @@
   roles:
     - netdata
     - cockpit
-    - hassio

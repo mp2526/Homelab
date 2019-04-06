@@ -1,6 +1,10 @@
 ---
 # file: pihole.yml
 - hosts: pihole
+  user: deploy
+  become: True
+  gather_facts: True
+
   roles:
     - netdata
     - cockpit

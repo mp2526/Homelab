@@ -1,6 +1,10 @@
 ---
 # file: nameservers.yml
 - hosts: nameservers
+  user: deploy
+  become: True
+  gather_facts: True
+
   roles:
     - netdata
     - cockpit

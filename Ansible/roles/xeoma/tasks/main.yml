@@ -28,7 +28,7 @@
 
   - name: Xeoma | Install package dependencies
     apt:
-      pkg: "{{netdata_deps}}"
+      pkg: "{{xeoma_deps}}"
       state: present
     when: xeoma_present.stat.exists == False
     become: yes

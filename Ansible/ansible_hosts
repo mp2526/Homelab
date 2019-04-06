@@ -1,16 +1,20 @@
 wopr01.perryha.us
-ARIIA.perryha.us
+vox114.perryha.us       ansible_python_interpreter=/usr/bin/python3
+ARIIA.perryha.us        ansible_python_interpreter=/usr/bin/python3
 mu-th-r-01.perryha.us	ansible_python_interpreter=/usr/bin/python3
 mcp01.perryha.us
 
 [pihole]
-wopr01.perryha.us ansible_user=mike
+wopr01.perryha.us ansible_user=deploy
 
 [hassio]
-mu-th-r-01.perryha.us ansible_user=mike	ansible_python_interpreter=/usr/bin/python3
+mu-th-r-01.perryha.us ansible_user=deploy	ansible_python_interpreter=/usr/bin/python3
 
 [nas]
-mcp01.perryha.us ansible_user=mike
+mcp01.perryha.us ansible_user=deploy
 
 [nvr]
-ARIIA.perryha.us ansible_user=mike
+ARIIA.perryha.us ansible_user=deploy ansible_python_interpreter=/usr/bin/python3
+
+[vpn]
+vox114.perryha.us ansible_user=deploy ansible_python_interpreter=/usr/bin/python3
